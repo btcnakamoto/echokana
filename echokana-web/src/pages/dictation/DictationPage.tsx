@@ -133,6 +133,7 @@ export default function DictationPage() {
   const [score, setScore] = useState(0);
   const [mode, setMode] = useState<'practice'|'challenge'>('practice');
   const [helpDialogOpen, setHelpDialogOpen] = useState(false);
+  const [comparisonResult, setComparisonResult] = useState<JSX.Element | null>(null);
   
   // refs
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -163,6 +164,71 @@ export default function DictationPage() {
     const isAnswerCorrect = userInput.trim() === currentDictation.text;
     setIsCorrect(isAnswerCorrect);
     
+    // 创建比较结果
+    const correctText = currentDictation.text;
+    const userText = userInput.trim();
+    
+    // 生成比较结果的JSX
+    const compareTexts = () => {
+      // 如果完全正确，显示完整的正确答案
+      if (isAnswerCorrect) {
+        setComparisonResult(
+          <p className="text-sm">
+            正确答案: <span className="font-bold text-green-600">{correctText}</span>
+            <span className="ml-4 text-muted-foreground">含义: <span className="font-medium">{currentDictation.meaning}</span></span>
+          </p>
+        );
+        setIsRevealed(true);
+        return;
+      }
+      
+      // 创建用户输入展示（错误部分为红色）
+      const userInputDisplay: JSX.Element[] = [];
+      
+      for (let i = 0; i < userText.length; i++) {
+        if (i < correctText.length && userText[i] === correctText[i]) {
+          // 字符匹配
+          userInputDisplay.push(<span key={`user-${i}`}>{userText[i]}</span>);
+        } else {
+          // 字符不匹配或超出长度
+          userInputDisplay.push(<span key={`user-${i}`} className="text-red-600">{userText[i]}</span>);
+        }
+      }
+      
+      // 创建正确答案展示（只显示用户输入正确的部分，其他用星号替代）
+      const correctAnswerDisplay: JSX.Element[] = [];
+      
+      for (let i = 0; i < correctText.length; i++) {
+        if (i < userText.length && userText[i] === correctText[i]) {
+          // 用户输入正确的字符
+          correctAnswerDisplay.push(<span key={`correct-${i}`}>{correctText[i]}</span>);
+        } else {
+          // 用户输入错误或缺失的字符
+          correctAnswerDisplay.push(<span key={`correct-${i}`}>*</span>);
+        }
+      }
+      
+      setComparisonResult(
+        <div className="space-y-2">
+          <p className="text-sm">
+            您写道: <span className="font-bold">{userInputDisplay}</span>
+          </p>
+          <p className="text-sm">
+            正确答案: <span className="font-bold">{correctAnswerDisplay}</span>
+          </p>
+          <p className="text-sm text-muted-foreground">
+            含义: <span className="font-medium">{currentDictation.meaning}</span>
+          </p>
+        </div>
+      );
+      
+      // 设置为已显示答案，这样用户可以进入下一题
+      setIsRevealed(true);
+    };
+    
+    // 比较文本
+    compareTexts();
+    
     if (isAnswerCorrect) {
       // 增加连续答对计数和分数
       const newStreakCount = streakCount + 1;
@@ -185,7 +251,7 @@ export default function DictationPage() {
       
       toast({
         title: "不完全正确",
-        description: "继续努力，你可以使用提示或查看正确答案。",
+        description: "继续努力，红色字是不正确的部分，星号(*)表示缺失的字符。",
         variant: "destructive",
       });
     }
@@ -205,10 +271,19 @@ export default function DictationPage() {
     }
   };
   
-  // 显示答案
-  const revealAnswer = () => {
-    setIsRevealed(true);
-    setStreakCount(0); // 查看答案重置连续答对
+  // 重置当前题目
+  const resetCurrent = () => {
+    setUserInput('');
+    setIsCorrect(null);
+    setIsRevealed(false);
+    setPlayCount(0);
+    setShowHint(null);
+    setComparisonResult(null);
+    
+    // 设置焦点到输入框
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100);
   };
   
   // 进入下一题
@@ -220,6 +295,7 @@ export default function DictationPage() {
       setIsRevealed(false);
       setPlayCount(0);
       setShowHint(null);
+      setComparisonResult(null);
       setProgress(Math.round(((currentIndex + 1) / currentDictationSet.length) * 100));
       
       // 设置焦点到输入框
@@ -236,20 +312,6 @@ export default function DictationPage() {
     }
   };
   
-  // 重置当前题目
-  const resetCurrent = () => {
-    setUserInput('');
-    setIsCorrect(null);
-    setIsRevealed(false);
-    setPlayCount(0);
-    setShowHint(null);
-    
-    // 设置焦点到输入框
-    setTimeout(() => {
-      inputRef.current?.focus();
-    }, 100);
-  };
-  
   // 切换难度
   const changeDifficulty = (newDifficulty: Difficulty) => {
     setDifficulty(newDifficulty);
@@ -259,6 +321,7 @@ export default function DictationPage() {
     setIsRevealed(false);
     setPlayCount(0);
     setShowHint(null);
+    setComparisonResult(null);
     setProgress(0);
   };
   
@@ -534,12 +597,7 @@ export default function DictationPage() {
                 <div className="rounded-md bg-muted p-4">
                   <div className="flex">
                     <div className="ml-3 flex-1 md:flex md:justify-between">
-                      <p className="text-sm text-muted-foreground">
-                        正确答案: <span className="font-bold text-foreground">{currentDictation.text}</span>
-                      </p>
-                      <p className="mt-3 text-sm md:ml-6 md:mt-0">
-                        含义: <span className="font-medium">{currentDictation.meaning}</span>
-                      </p>
+                      {comparisonResult}
                     </div>
                   </div>
                 </div>
@@ -575,9 +633,6 @@ export default function DictationPage() {
                 className="bg-indigo-600 hover:bg-indigo-700"
               >
                 检查答案
-              </Button>
-              <Button onClick={revealAnswer} variant="outline">
-                显示答案
               </Button>
             </div>
             <div className="flex space-x-2">

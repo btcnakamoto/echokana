@@ -47,13 +47,13 @@ export default function HomePage() {
             <div className="hidden md:flex">
               <h1 className="text-xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Echokana
-              </h1>
-            </div>
-          </div>
+                </h1>
+                      </div>
+                      </div>
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <div className="w-full flex-1 md:w-auto md:flex-none">
               {/* 占位，可放搜索栏等 */}
-            </div>
+                      </div>
             <nav className="flex items-center space-x-2">
               <Button
                 variant="ghost"
@@ -190,7 +190,7 @@ export default function HomePage() {
                     </p>
                   </CardContent>
                 </Card>
-              </div>
+          </div>
 
               {/* 学习功能区 */}
               <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -198,10 +198,10 @@ export default function HomePage() {
                 <Card className="overflow-hidden transition-transform hover:scale-[1.02] duration-300 cursor-pointer group">
                   <CardHeader className="pb-2">
                     <div className="bg-gradient-to-br from-indigo-400 to-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center mb-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
-                      </svg>
-                    </div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
+                </svg>
+              </div>
                     <CardTitle>听写练习</CardTitle>
                     <CardDescription>提升听力和书写能力</CardDescription>
                   </CardHeader>
@@ -213,8 +213,8 @@ export default function HomePage() {
                     >
                       开始练习
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                      </svg>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
                     </Button>
                   </CardFooter>
                 </Card>
@@ -223,10 +223,10 @@ export default function HomePage() {
                 <Card className="overflow-hidden transition-transform hover:scale-[1.02] duration-300 cursor-pointer group">
                   <CardHeader className="pb-2">
                     <div className="bg-gradient-to-br from-purple-400 to-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center mb-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                      </svg>
-                    </div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                </svg>
+              </div>
                     <CardTitle>阅读练习</CardTitle>
                     <CardDescription>浏览文章扩展词汇量</CardDescription>
                   </CardHeader>
@@ -234,8 +234,8 @@ export default function HomePage() {
                     <Button variant="ghost" className="text-purple-600 hover:text-purple-800 p-0 group-hover:translate-x-1 transition-transform duration-300">
                       开始阅读
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                      </svg>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
                     </Button>
                   </CardFooter>
                 </Card>
@@ -244,10 +244,10 @@ export default function HomePage() {
                 <Card className="overflow-hidden transition-transform hover:scale-[1.02] duration-300 cursor-pointer group">
                   <CardHeader className="pb-2">
                     <div className="bg-gradient-to-br from-pink-400 to-pink-600 text-white w-12 h-12 rounded-full flex items-center justify-center mb-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                      </svg>
-                    </div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+              </div>
                     <CardTitle>词汇复习</CardTitle>
                     <CardDescription>使用SRS高效记忆</CardDescription>
                   </CardHeader>
@@ -255,8 +255,8 @@ export default function HomePage() {
                     <Button variant="ghost" className="text-pink-600 hover:text-pink-800 p-0 group-hover:translate-x-1 transition-transform duration-300">
                       开始复习
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                      </svg>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
                     </Button>
                   </CardFooter>
                 </Card>
@@ -337,16 +337,16 @@ export default function HomePage() {
                         </div>
                         <div>
                           <Badge variant="outline">进行中</Badge>
-                        </div>
-                      </div>
+            </div>
+          </div>
                       <div className="mt-4 h-2 w-full rounded-full bg-secondary">
                         <div className="h-2 rounded-full bg-primary" style={{ width: '65%' }}></div>
                       </div>
                       <div className="mt-2 text-right text-xs text-muted-foreground">
                         65% 完成
-                      </div>
-                    </div>
-                    
+        </div>
+      </div>
+
                     <div>
                       <div className="flex items-center justify-between">
                         <div className="space-y-1">
