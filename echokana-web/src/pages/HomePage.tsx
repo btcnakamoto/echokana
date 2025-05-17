@@ -206,7 +206,11 @@ export default function HomePage() {
                     <CardDescription>提升听力和书写能力</CardDescription>
                   </CardHeader>
                   <CardFooter className="pb-4">
-                    <Button variant="ghost" className="text-indigo-600 hover:text-indigo-800 p-0 group-hover:translate-x-1 transition-transform duration-300">
+                    <Button 
+                      variant="ghost" 
+                      className="text-indigo-600 hover:text-indigo-800 p-0 group-hover:translate-x-1 transition-transform duration-300"
+                      onClick={() => navigate('/dictation')}
+                    >
                       开始练习
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />

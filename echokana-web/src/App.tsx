@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from './pages/HomePage';
 import LandingPage from './pages/LandingPage';
+import DictationPage from './pages/dictation/DictationPage';
 import './App.css';
 
 function App() {
@@ -26,6 +27,14 @@ function App() {
           element={
             <ProtectedRoute>
               <HomePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dictation"
+          element={
+            <ProtectedRoute>
+              <DictationPage />
             </ProtectedRoute>
           }
         />
