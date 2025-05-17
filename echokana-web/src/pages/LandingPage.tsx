@@ -51,7 +51,7 @@ export default function LandingPage() {
       
       <div className="relative z-10 h-full">
         {/* 导航栏 */}
-        <header className="flex justify-between items-center" style={{ paddingLeft: "10%", paddingRight: "10%", paddingTop: "6vh", paddingBottom: "6vh" }}>
+        <header className="flex justify-between items-center" style={{ paddingLeft: "14%", paddingRight: "14%", paddingTop: "6vh", paddingBottom: "6vh" }}>
           <div className="flex items-center gap-3">
             <img src={logoImage} alt="Echokana Logo" className="h-12 w-auto" />
             <div className="font-bold text-xl text-gray-900">Echokana</div>
@@ -90,7 +90,7 @@ export default function LandingPage() {
         </header>
         
         {/* 主要内容区域 */}
-        <div className="grid md:grid-cols-2 items-center" style={{ paddingLeft: "10%", paddingRight: "10%" }}>
+        <div className="grid md:grid-cols-2 items-center" style={{ paddingLeft: "14%", paddingRight: "14%" }}>
           {/* 左侧文本区域 */}
           <div className="py-8 md:py-12 text-left">
             <div className="text-left mb-4">
