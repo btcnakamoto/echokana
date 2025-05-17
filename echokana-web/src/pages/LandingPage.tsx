@@ -16,9 +16,7 @@ export default function LandingPage() {
         </svg>
       </div>
       
-      {/* 右侧圆圈装饰已移除 */}
-      
-      {/* 右侧圆形区域装饰 */}
+      {/* 右上方圆形装饰 */}
       <div className="absolute z-10" style={{ 
         top: '6vh',
         right: '-108px',  
@@ -28,7 +26,7 @@ export default function LandingPage() {
         borderRadius: '50%'
       }}></div>
       
-      {/* 左侧圆形区域装饰 */}
+      {/* 左下方圆形装饰 */}
       <div className="absolute z-10" style={{ 
         bottom: '12%',
         left: '-45px',  
@@ -110,10 +108,6 @@ export default function LandingPage() {
           
           {/* 右侧图像区域 */}
           <div className="relative flex justify-center">
-            {/* 日语汉字气泡已移除 */}
-            
-            {/* 涂鸦背景元素已移除 */}
-            
             {/* 主要插图 */}
             <div className="relative z-10">
               <img 
@@ -126,9 +120,9 @@ export default function LandingPage() {
         </div>
         
         {/* 底部特性图标 */}
-        <div className="py-6 grid grid-cols-3 gap-4 border-t border-gray-200" style={{ paddingLeft: "10%", paddingRight: "10%" }}>
+        <div className="py-8 grid grid-cols-3 gap-4 border-t border-gray-200" style={{ paddingLeft: "14%", paddingRight: "14%" }}>
           <div className="flex flex-col items-center text-center">
-            <div className="mb-2">
+            <div className="mb-3">
               <svg className="w-12 h-12 text-gray-800" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                 {/* 左侧书本 */}
                 <path fill="#f9d6d3" d="M12 16h20v30H12a2 2 0 01-2-2V18a2 2 0 012-2z" />
@@ -161,12 +155,16 @@ export default function LandingPage() {
           </div>
           
           <div className="flex flex-col items-center text-center">
-            <div className="mb-2">
+            <div className="mb-3">
               <svg className="w-12 h-12 text-gray-800" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="32" cy="32" r="20" fill="#f9d6d3" />
-                <path d="M20 32h-4a2 2 0 00-2 2v8a2 2 0 002 2h4a2 2 0 002-2v-8a2 2 0 00-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <path d="M48 32h-4a2 2 0 00-2 2v8a2 2 0 002 2h4a2 2 0 002-2v-8a2 2 0 00-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                {/* 耳机图标 */}
+                <path d="M20 32h-4a2 2 0 00-2 2v8a2 2 0 002 2h4a2 2 0 002-2v-8a2 2 0 00-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="#ffaea3" />
+                <path d="M48 32h-4a2 2 0 00-2 2v8a2 2 0 002 2h4a2 2 0 002-2v-8a2 2 0 00-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="#ffaea3" />
                 <path d="M16 34v-6a16 16 0 1132 0v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                {/* 音波 */}
+                <path d="M34 28c1.5 1 2.5 2.5 2.5 4s-1 3-2.5 4" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.7" />
+                <path d="M36 26c2 1.5 3.5 3.5 3.5 6s-1.5 4.5-3.5 6" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
               </svg>
             </div>
             <div>
@@ -176,10 +174,11 @@ export default function LandingPage() {
           </div>
           
           <div className="flex flex-col items-center text-center">
-            <div className="mb-2">
+            <div className="mb-3">
               <svg className="w-12 h-12 text-gray-800" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="32" cy="32" r="20" fill="#f9d6d3" />
                 <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M32 18v14l8 8" />
+                <circle cx="32" cy="32" r="3" fill="#ffaea3" />
                 <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M12 32h8m24 0h8M32 12v8m0 24v8" />
               </svg>
             </div>

@@ -11,6 +11,11 @@ import ImmersiveDictationPage from './pages/dictation/ImmersiveDictationPage';
 import { SakuraEffect } from './components/common/SakuraEffect';
 import './App.css';
 
+// 添加阅读页面导入
+import ReadingPage from './pages/reading/ReadingPage';
+// 添加听力练习页面导入
+import ListeningPage from './pages/listening/ListeningPage';
+
 function App() {
   const auth = useAuthStore();
 
@@ -52,6 +57,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <ImmersiveDictationPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reading"
+            element={
+              <ProtectedRoute>
+                <ReadingPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/listening"
+            element={
+              <ProtectedRoute>
+                <ListeningPage />
               </ProtectedRoute>
             }
           />
