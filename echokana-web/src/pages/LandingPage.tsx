@@ -7,16 +7,47 @@ export default function LandingPage() {
   return (
     <div className="w-full min-h-screen bg-white overflow-hidden relative">
       {/* 曲线背景区域 */}
-      <div 
-        className="absolute top-0 right-0 bg-[#f3f4ff] w-[60%] h-[92%] z-0"
-        style={{
-          borderBottomLeftRadius: '85% 80%',
-          transform: 'translateX(3%)'
-        }}
-      ></div>
+      <div className="absolute top-0 right-0 z-0 overflow-hidden h-full w-full pointer-events-none">
+        <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path 
+            d="M40,0 L100,0 L100,85 Q60,75 40,0"
+            fill="#f3f4ff"
+          />
+        </svg>
+      </div>
       
-      {/* 右侧圆圈装饰 */}
-      <div className="absolute top-20 right-20 w-44 h-44 bg-pink-200 rounded-full opacity-20 z-0"></div>
+      {/* 右侧圆圈装饰已移除 */}
+      
+      {/* 右侧圆形区域装饰 */}
+      <div className="absolute z-10" style={{ 
+        top: '6vh',
+        right: '-108px',  
+        width: '216px', 
+        height: '216px', 
+        background: '#ffccc3',
+        borderRadius: '50%'
+      }}></div>
+      
+      {/* 左侧圆形区域装饰 */}
+      <div className="absolute z-10" style={{ 
+        bottom: '12%',
+        left: '-45px',  
+        width: '130px', 
+        height: '130px', 
+        background: '#ffccc3',
+        borderRadius: '50%'
+      }}></div>
+      
+      {/* 中间偏右上方圆形装饰 */}
+      <div className="absolute z-10" style={{ 
+        top: '30%',
+        left: '60%',  
+        width: '100px', 
+        height: '100px', 
+        background: '#ffccc3',
+        borderRadius: '50%',
+        transform: 'translate(-50%, -50%)'
+      }}></div>
       
       <div className="relative z-10 h-full">
         {/* 导航栏 */}
@@ -79,18 +110,9 @@ export default function LandingPage() {
           
           {/* 右侧图像区域 */}
           <div className="relative flex justify-center">
-            {/* 日语汉字气泡 - 仅保留气泡 */}
-            <div className="absolute top-10 left-1/4 bg-pink-200 rounded-full w-16 h-16 flex items-center justify-center z-10">
-            </div>
+            {/* 日语汉字气泡已移除 */}
             
-            {/* 涂鸦背景元素 */}
-            <div className="absolute top-1/4 right-1/4 text-pink-200/30 z-0">
-              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M60 10C60 40 100 60 110 60" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
-                <path d="M60 20C60 40 90 60 110 60" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
-                <path d="M60 30C60 45 80 60 110 60" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
-              </svg>
-            </div>
+            {/* 涂鸦背景元素已移除 */}
             
             {/* 主要插图 */}
             <div className="relative z-10">
@@ -108,9 +130,28 @@ export default function LandingPage() {
           <div className="flex flex-col items-center text-center">
             <div className="mb-2">
               <svg className="w-12 h-12 text-gray-800" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="28" height="28" x="6" y="18" fill="#f9d6d3" rx="2" />
-                <rect width="28" height="28" x="30" y="18" fill="#f9d6d3" rx="2" />
-                <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M20 20v24M44 20v24M8 32h24M32 32h24" />
+                {/* 左侧书本 */}
+                <path fill="#f9d6d3" d="M12 16h20v30H12a2 2 0 01-2-2V18a2 2 0 012-2z" />
+                <rect x="12" y="16" width="20" height="30" stroke="currentColor" strokeWidth="1.5" />
+                <path stroke="currentColor" strokeWidth="1.5" d="M12 16h20M12 46h20" />
+                
+                {/* 右侧书本 */}
+                <path fill="#ffaea3" d="M32 16h20a2 2 0 012 2v26a2 2 0 01-2 2H32V16z" />
+                <rect x="32" y="16" width="20" height="30" stroke="currentColor" strokeWidth="1.5" />
+                <path stroke="currentColor" strokeWidth="1.5" d="M32 16h20M32 46h20" />
+                
+                {/* 书籍装订线 */}
+                <path stroke="currentColor" strokeWidth="2" d="M32 16v30" />
+                
+                {/* 书脊阴影 */}
+                <path fill="#e0c0c0" opacity="0.3" d="M30 16h4v30h-4z" />
+                
+                {/* 日本字样 - 左边"日" */}
+                <path fill="currentColor" d="M20 24h4v2h-4v4h-2v-4h-4v-2h4v-4h2v4z" />
+                
+                {/* 日本字样 - 右边"本" */}
+                <path fill="currentColor" d="M42 22h-4v-2h10v2h-4v10h-2v-10z" />
+                <path fill="currentColor" d="M40 26h6v2h-6z" />
               </svg>
             </div>
             <div>
@@ -122,9 +163,10 @@ export default function LandingPage() {
           <div className="flex flex-col items-center text-center">
             <div className="mb-2">
               <svg className="w-12 h-12 text-gray-800" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="#f9d6d3" d="M12 24a20 20 0 0140 0v16a20 20 0 01-40 0V24z" />
-                <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M18 24s0-12 14-12 14 12 14 12" />
-                <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M46 24v16a14 14 0 01-14 14m-14-14v-16a14 14 0 0114-14" />
+                <circle cx="32" cy="32" r="20" fill="#f9d6d3" />
+                <path d="M20 32h-4a2 2 0 00-2 2v8a2 2 0 002 2h4a2 2 0 002-2v-8a2 2 0 00-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path d="M48 32h-4a2 2 0 00-2 2v8a2 2 0 002 2h4a2 2 0 002-2v-8a2 2 0 00-2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <path d="M16 34v-6a16 16 0 1132 0v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
               </svg>
             </div>
             <div>
