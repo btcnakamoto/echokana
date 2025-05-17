@@ -1,52 +1,53 @@
 # EchoKana 🎧📖
 
-**EchoKana** is a web-based Japanese learning platform that combines **dictation**, **reading**, and **smart review (SRS)** to help learners deeply internalize Japanese listening and writing skills.
+**EchoKana** is a comprehensive Japanese learning platform that combines **dictation training**, **reading practice**, and **smart review (SRS)** to help learners deeply improve their listening, writing, and vocabulary retention.
+
+Built with **Laravel (API backend)** and **React (frontend SPA)**, it supports full user account functionality, audio-text pairing, spaced repetition review, and cross-device progress sync.
 
 ---
 
 ## 🌟 Features
 
 ### 🎧 Dictation Practice
-- Listen to native Japanese audio clips and type what you hear
-- Supports sentence-by-sentence and full-paragraph modes
-- Instant feedback on correctness
-- Mistakes are automatically saved for review
+- Listen to native Japanese audio clips
+- Sentence-by-sentence or full-paragraph input
+- Real-time feedback on accuracy
+- Mistakes are automatically saved for review via SRS
 
 ### 📖 Reading Mode
-- Interactive Japanese articles with optional furigana and translations
-- Grammar point highlighting (JLPT level-tagged)
-- Tap any word to view definition and add to vocabulary notebook
+- Interactive reading articles with furigana and EN/CN translation
+- Grammar highlights (JLPT level tagged)
+- Tap words to view definitions and add to your vocabulary notebook
 
-### 🧠 Spaced Repetition Review (SRS)
-- Mistakes from dictation and unfamiliar vocabulary are scheduled for future review
-- Based on the SuperMemo-2 algorithm
-- Daily personalized review session
+### 🧠 Spaced Repetition System (SRS)
+- SM-2 algorithm for scheduling personalized review
+- Daily review tasks based on past mistakes
+- Visual stats on memory progress and retention
 
-### 📊 Learning Stats
-- Track your progress over time
-- Mistake frequency, review efficiency, and vocabulary growth
-
-### 🎙️ Coming Soon...
-- Shadowing + voice recording comparison
-- User-generated dictation packs
-- JLPT Listening simulation mode
+### 🔐 User System
+- Registration / Login / Auth (Laravel Sanctum)
+- Cloud-synced vocabulary and progress
+- Per-user history and personalized study tracking
 
 ---
 
-## 🚀 Tech Stack
+## ⚙️ Tech Stack
 
-- **Frontend**: React.js + Tailwind CSS  
-- **Backend**: Node.js / Express  
-- **Database**: MongoDB (or Firebase for auth + storage)  
-- **Audio Processing**: Web Audio API, Whisper ASR (optional)  
-- **SRS Engine**: Custom-built SM2 algorithm  
-- **Others**: IndexedDB for offline storage, i18n ready
+| Layer       | Technology                          |
+|-------------|--------------------------------------|
+| Frontend    | React + Vite + Tailwind CSS          |
+| State Mgmt  | React Query / Zustand                |
+| Backend     | Laravel 10.x (RESTful API)           |
+| Auth        | Laravel Sanctum                     |
+| Database    | MySQL / PostgreSQL                   |
+| Storage     | Laravel File Storage (or AWS S3)     |
+| Deployment  | Laravel Forge + Vercel / Docker      |
 
 ---
 
-## 🛠️ Getting Started
+## 🚀 Getting Started
 
-### 1. Clone the repo
+### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/echokana.git
+git clone https://github.com/yourname/echokana.git
 cd echokana
