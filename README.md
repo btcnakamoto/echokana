@@ -1,0 +1,2 @@
+# echokana
+learning Japanese  easy
