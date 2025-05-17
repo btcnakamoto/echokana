@@ -1,241 +1,153 @@
 import { Link } from 'react-router-dom';
 import { Button } from "../components/ui/button";
-import { Badge } from "../components/ui/badge";
+import girlImage from "../assets/images/topgirl_tou.png";
+import logoImage from "../assets/images/logo.svg";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50">
-      {/* 导航栏 */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 max-w-screen-2xl items-center">
-          <div className="mr-4 flex">
-            <Link to="/" className="flex items-center space-x-2">
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Echokana
-              </h1>
+    <div className="w-full min-h-screen bg-white overflow-hidden relative">
+      {/* 曲线背景区域 */}
+      <div 
+        className="absolute top-0 right-0 bg-[#f3f4ff] w-[60%] h-[92%] z-0"
+        style={{
+          borderBottomLeftRadius: '85% 80%',
+          transform: 'translateX(3%)'
+        }}
+      ></div>
+      
+      {/* 右侧圆圈装饰 */}
+      <div className="absolute top-20 right-20 w-44 h-44 bg-pink-200 rounded-full opacity-20 z-0"></div>
+      
+      <div className="relative z-10 h-full">
+        {/* 导航栏 */}
+        <header className="flex justify-between items-center" style={{ paddingLeft: "10%", paddingRight: "10%", paddingTop: "6vh", paddingBottom: "6vh" }}>
+          <div className="flex items-center gap-3">
+            <img src={logoImage} alt="Echokana Logo" className="h-12 w-auto" />
+            <div className="font-bold text-xl text-gray-900">Echokana</div>
+          </div>
+          
+          <div className="hidden md:flex items-center space-x-6">
+            <div className="relative group">
+              <button className="text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center">
+                课程
+                <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
+            <Link to="#why-us" className="text-sm font-medium text-gray-700 hover:text-gray-900">
+              为什么选择我们
+            </Link>
+            <Link to="#support" className="text-sm font-medium text-gray-700 hover:text-gray-900">
+              支持
+            </Link>
+            <Link to="/register">
+              <Button size="sm" className="rounded-full border border-gray-300 bg-white text-gray-800 hover:bg-gray-50 px-4">
+                开始学习
+              </Button>
             </Link>
           </div>
-          <div className="flex flex-1 items-center justify-end space-x-4">
-            <nav className="flex items-center space-x-4">
-              <Link to="#features" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                功能特点
-              </Link>
-              <Link to="#about" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                关于我们
-              </Link>
-              <Link to="/login">
-                <Button variant="ghost" size="sm">登录</Button>
-              </Link>
-              <Link to="/register">
-                <Button>注册</Button>
-              </Link>
-            </nav>
+          
+          {/* 移动端菜单按钮 */}
+          <div className="md:hidden">
+            <Button variant="ghost" size="sm" className="text-gray-700">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </Button>
           </div>
-        </div>
-      </header>
-
-      {/* 英雄区域 */}
-      <section className="py-20 md:py-32">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="space-y-2">
-                <Badge variant="outline" className="px-3 py-1">
-                  <span className="text-sm font-medium">全新体验</span>
-                </Badge>
-                <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  高效实用的日语学习平台
-                </h1>
-                <p className="text-muted-foreground text-lg md:text-xl">
-                  使用 Echokana，通过科学的间隔重复系统提高您的日语词汇量和听力水平，让学习变得更加轻松有效。
-                </p>
-              </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Link to="/register">
-                  <Button size="lg" className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white">
-                    开始免费使用
-                  </Button>
-                </Link>
-                <Link to="#features">
-                  <Button size="lg" variant="outline">
-                    了解更多
-                  </Button>
-                </Link>
-              </div>
+        </header>
+        
+        {/* 主要内容区域 */}
+        <div className="grid md:grid-cols-2 items-center" style={{ paddingLeft: "10%", paddingRight: "10%" }}>
+          {/* 左侧文本区域 */}
+          <div className="py-8 md:py-12 text-left">
+            <div className="text-left mb-4">
+              <span className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 inline-block mb-2">学习</span>
+              <br/>
+              <span className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 inline-block">日语</span>
             </div>
-            <div className="mx-auto aspect-video overflow-hidden rounded-xl bg-gradient-to-br from-indigo-400/20 to-purple-400/20 object-cover shadow-xl flex items-center justify-center">
+            <p className="text-gray-600 mb-8 max-w-md text-sm leading-relaxed">
+              无论是参观京都的寺庙，获得一份新工作，还是建立个人联系 —— 不管你为什么想学习日语，我们都有适合你的课程。
+            </p>
+            <Link to="/register">
+              <Button className="rounded-full bg-indigo-800 hover:bg-indigo-900 text-white px-6 py-2">
+                开始学习
+              </Button>
+            </Link>
+          </div>
+          
+          {/* 右侧图像区域 */}
+          <div className="relative flex justify-center">
+            {/* 日语汉字气泡 - 仅保留气泡 */}
+            <div className="absolute top-10 left-1/4 bg-pink-200 rounded-full w-16 h-16 flex items-center justify-center z-10">
+            </div>
+            
+            {/* 涂鸦背景元素 */}
+            <div className="absolute top-1/4 right-1/4 text-pink-200/30 z-0">
+              <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 10C60 40 100 60 110 60" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+                <path d="M60 20C60 40 90 60 110 60" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+                <path d="M60 30C60 45 80 60 110 60" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              </svg>
+            </div>
+            
+            {/* 主要插图 */}
+            <div className="relative z-10">
               <img 
-                src="https://placehold.co/700x400/e2e8f0/475569?text=Echokana+Demo" 
-                alt="Echokana应用演示"
-                className="w-full h-full object-cover"
+                src={girlImage} 
+                alt="女孩学习日语" 
+                className="max-w-sm md:max-w-md h-auto"
               />
             </div>
           </div>
         </div>
-      </section>
-
-      {/* 特点部分 */}
-      <section id="features" className="py-16 bg-white">
-        <div className="container px-4 md:px-6">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-center mb-4">为什么选择 Echokana</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              我们提供多种功能，帮助您高效学习日语
-            </p>
+        
+        {/* 底部特性图标 */}
+        <div className="py-6 grid grid-cols-3 gap-4 border-t border-gray-200" style={{ paddingLeft: "10%", paddingRight: "10%" }}>
+          <div className="flex flex-col items-center text-center">
+            <div className="mb-2">
+              <svg className="w-12 h-12 text-gray-800" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="28" height="28" x="6" y="18" fill="#f9d6d3" rx="2" />
+                <rect width="28" height="28" x="30" y="18" fill="#f9d6d3" rx="2" />
+                <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M20 20v24M44 20v24M8 32h24M32 32h24" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="font-medium text-gray-900 text-sm">详细课程</h3>
+              <p className="text-xs text-gray-500">包含丰富的词汇和文化知识</p>
+            </div>
           </div>
           
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* 特点卡片1 */}
-            <div className="flex flex-col p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-gradient-to-br from-indigo-400 to-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-2">高效听写练习</h3>
-              <p className="text-muted-foreground mb-4">通过听写练习提高您的听力理解能力和书写技能，加深对日语发音的认识。</p>
+          <div className="flex flex-col items-center text-center">
+            <div className="mb-2">
+              <svg className="w-12 h-12 text-gray-800" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#f9d6d3" d="M12 24a20 20 0 0140 0v16a20 20 0 01-40 0V24z" />
+                <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M18 24s0-12 14-12 14 12 14 12" />
+                <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M46 24v16a14 14 0 01-14 14m-14-14v-16a14 14 0 0114-14" />
+              </svg>
             </div>
-            
-            {/* 特点卡片2 */}
-            <div className="flex flex-col p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-gradient-to-br from-purple-400 to-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-2">情境阅读学习</h3>
-              <p className="text-muted-foreground mb-4">通过阅读真实文章，在上下文中学习词汇和语法，提高阅读理解能力。</p>
+            <div>
+              <h3 className="font-medium text-gray-900 text-sm">生动的音频</h3>
+              <p className="text-xs text-gray-500">由母语者录制</p>
             </div>
-            
-            {/* 特点卡片3 */}
-            <div className="flex flex-col p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-gradient-to-br from-pink-400 to-pink-600 text-white w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-2">科学间隔重复</h3>
-              <p className="text-muted-foreground mb-4">使用基于科学研究的间隔重复系统(SRS)，优化复习计划，最大化记忆保留率。</p>
+          </div>
+          
+          <div className="flex flex-col items-center text-center">
+            <div className="mb-2">
+              <svg className="w-12 h-12 text-gray-800" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="32" cy="32" r="20" fill="#f9d6d3" />
+                <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M32 18v14l8 8" />
+                <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="M12 32h8m24 0h8M32 12v8m0 24v8" />
+              </svg>
+            </div>
+            <div>
+              <h3 className="font-medium text-gray-900 text-sm">灵活的订阅选项</h3>
+              <p className="text-xs text-gray-500">满足您的不同需求</p>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* 用户见证部分 */}
-      <section className="py-16 bg-gradient-to-br from-indigo-50 to-purple-50">
-        <div className="container px-4 md:px-6">
-          <h2 className="text-3xl font-bold text-center mb-10">用户反馈</h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {/* 见证卡片1 */}
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold">
-                  LM
-                </div>
-                <div>
-                  <h4 className="font-bold">李明</h4>
-                  <p className="text-sm text-muted-foreground">日语学习者 · 3个月</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground">"Echokana的听写练习帮助我极大地提高了听力能力，现在听日语对话不再感到吃力。"</p>
-            </div>
-            
-            {/* 见证卡片2 */}
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
-                  ZW
-                </div>
-                <div>
-                  <h4 className="font-bold">张薇</h4>
-                  <p className="text-sm text-muted-foreground">日语爱好者 · 6个月</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground">"间隔重复系统太神奇了，我能明显感觉到自己的词汇量在稳步增长，而且记忆更加牢固。"</p>
-            </div>
-            
-            {/* 见证卡片3 */}
-            <div className="bg-white p-6 rounded-xl shadow-sm">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center text-white font-bold">
-                  WJ
-                </div>
-                <div>
-                  <h4 className="font-bold">王杰</h4>
-                  <p className="text-sm text-muted-foreground">JLPT备考生 · 1年</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground">"得益于Echokana的系统性学习路径，我顺利通过了N3考试，现在正在为N2努力。"</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 行动召唤部分 */}
-      <section className="py-20 bg-white">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">准备好开始您的日语学习之旅了吗？</h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              加入数千名学习者的行列，体验Echokana带来的高效学习方式。
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/register">
-                <Button size="lg" className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white">
-                  免费注册
-                </Button>
-              </Link>
-              <Link to="/login">
-                <Button size="lg" variant="outline">
-                  登录
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 页脚 */}
-      <footer className="py-10 bg-slate-50 border-t">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
-            <div>
-              <h3 className="text-lg font-bold mb-4">Echokana</h3>
-              <p className="text-sm text-muted-foreground">
-                高效实用的日语学习平台，帮助您轻松掌握日语。
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">功能</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link to="#" className="hover:underline">听写练习</Link></li>
-                <li><Link to="#" className="hover:underline">阅读学习</Link></li>
-                <li><Link to="#" className="hover:underline">词汇复习</Link></li>
-                <li><Link to="#" className="hover:underline">学习路径</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">资源</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link to="#" className="hover:underline">学习指南</Link></li>
-                <li><Link to="#" className="hover:underline">常见问题</Link></li>
-                <li><Link to="#" className="hover:underline">使用条款</Link></li>
-                <li><Link to="#" className="hover:underline">隐私政策</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">联系我们</h3>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>contact@echokana.com</li>
-                <li>中国·上海</li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
-            <p>© 2023 Echokana. 保留所有权利。</p>
-          </div>
-        </div>
-      </footer>
+      </div>
     </div>
   );
 } 

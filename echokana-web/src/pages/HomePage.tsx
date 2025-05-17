@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { Badge } from "../components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { Separator } from "../components/ui/separator";
+import logoSvg from "../assets/images/logo.svg";
 
 export default function HomePage() {
   const auth = useAuthStore();
@@ -42,14 +43,15 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50">
       {/* 顶部导航栏 */}
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 max-w-screen-2xl items-center">
+        <div className="container flex h-20 max-w-screen-2xl items-center">
           <div className="mr-4 flex">
-            <div className="hidden md:flex">
+            <div className="hidden md:flex items-center space-x-4">
+              <img src={logoSvg} alt="Echokana Logo" className="h-16 w-auto" />
               <h1 className="text-xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 Echokana
-                </h1>
-                      </div>
-                      </div>
+              </h1>
+            </div>
+          </div>
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <div className="w-full flex-1 md:w-auto md:flex-none">
               {/* 占位，可放搜索栏等 */}
@@ -195,7 +197,10 @@ export default function HomePage() {
               {/* 学习功能区 */}
               <div className="mt-6 grid gap-4 md:grid-cols-3">
                 {/* 听写练习卡片 */}
-                <Card className="overflow-hidden transition-transform hover:scale-[1.02] duration-300 cursor-pointer group">
+                <Card 
+                  className="overflow-hidden transition-transform hover:scale-[1.02] duration-300 cursor-pointer group"
+                  onClick={() => navigate('/immersive-dictation')}
+                >
                   <CardHeader className="pb-2">
                     <div className="bg-gradient-to-br from-indigo-400 to-indigo-600 text-white w-12 h-12 rounded-full flex items-center justify-center mb-2">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -206,58 +211,60 @@ export default function HomePage() {
                     <CardDescription>提升听力和书写能力</CardDescription>
                   </CardHeader>
                   <CardFooter className="pb-4">
-                    <Button 
-                      variant="ghost" 
-                      className="text-indigo-600 hover:text-indigo-800 p-0 group-hover:translate-x-1 transition-transform duration-300"
-                      onClick={() => navigate('/dictation')}
-                    >
+                    <div className="text-indigo-600 font-medium flex items-center group-hover:translate-x-1 transition-transform duration-300">
                       开始练习
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-                    </Button>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                      </svg>
+                    </div>
                   </CardFooter>
                 </Card>
 
                 {/* 阅读练习卡片 */}
-                <Card className="overflow-hidden transition-transform hover:scale-[1.02] duration-300 cursor-pointer group">
+                <Card 
+                  className="overflow-hidden transition-transform hover:scale-[1.02] duration-300 cursor-pointer group"
+                  onClick={() => {/* 未来可以添加导航到阅读页面的函数 */}}
+                >
                   <CardHeader className="pb-2">
                     <div className="bg-gradient-to-br from-purple-400 to-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-                </svg>
-              </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+                      </svg>
+                    </div>
                     <CardTitle>阅读练习</CardTitle>
                     <CardDescription>浏览文章扩展词汇量</CardDescription>
                   </CardHeader>
                   <CardFooter className="pb-4">
-                    <Button variant="ghost" className="text-purple-600 hover:text-purple-800 p-0 group-hover:translate-x-1 transition-transform duration-300">
+                    <div className="text-purple-600 font-medium flex items-center group-hover:translate-x-1 transition-transform duration-300">
                       开始阅读
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-                    </Button>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                      </svg>
+                    </div>
                   </CardFooter>
                 </Card>
 
                 {/* 词汇复习卡片 */}
-                <Card className="overflow-hidden transition-transform hover:scale-[1.02] duration-300 cursor-pointer group">
+                <Card 
+                  className="overflow-hidden transition-transform hover:scale-[1.02] duration-300 cursor-pointer group"
+                  onClick={() => {/* 未来可以添加导航到词汇复习页面的函数 */}}
+                >
                   <CardHeader className="pb-2">
                     <div className="bg-gradient-to-br from-pink-400 to-pink-600 text-white w-12 h-12 rounded-full flex items-center justify-center mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                </svg>
-              </div>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                      </svg>
+                    </div>
                     <CardTitle>词汇复习</CardTitle>
                     <CardDescription>使用SRS高效记忆</CardDescription>
                   </CardHeader>
                   <CardFooter className="pb-4">
-                    <Button variant="ghost" className="text-pink-600 hover:text-pink-800 p-0 group-hover:translate-x-1 transition-transform duration-300">
+                    <div className="text-pink-600 font-medium flex items-center group-hover:translate-x-1 transition-transform duration-300">
                       开始复习
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                </svg>
-                    </Button>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                      </svg>
+                    </div>
                   </CardFooter>
                 </Card>
               </div>
